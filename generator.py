@@ -20,26 +20,25 @@ class Generator:
             if choice == 'Uppercase':
                 # create a list of characters for the category
                 uppers = list(string.ascii_uppercase)
-                # select a random subset of the character
-                uppers_selected = random.sample(uppers, self.per_category)
-                # add them to the list
-                output.extend(uppers_selected)
+                # for the amount of characters from the category we need to add
+                for _ in range(self.per_category):
+                    # add a random one
+                    output.append(random.choice(uppers))
 
             if choice == 'Lowercase':
                 lowers = list(string.ascii_lowercase)
-                lowers_selected = random.sample(lowers, self.per_category)
-                output.extend(lowers_selected)
+                for _ in range(self.per_category):
+                    output.append(random.choice(lowers))
 
             if choice == 'Numbers':
                 digits = list(string.digits)
-                digits_selected = random.sample(digits, self.per_category)
-                output.extend(digits_selected)
+                for _ in range(self.per_category):
+                    output.append(random.choice(digits))
 
             if choice == 'Symbols':
-                symbols = list("!@#$%^&*?")
-                symbols_selected = random.sample(
-                    symbols, self.per_category)
-                output.extend(symbols_selected)
+                symbols = list("!@#$%^&*")
+                for _ in range(self.per_category):
+                    output.append(random.choice(symbols))
 
         # shuffle the selected characters so the categories aren't all lined up
         random.shuffle(output)
